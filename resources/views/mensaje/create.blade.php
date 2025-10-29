@@ -19,11 +19,13 @@
     @endif
 
     {{-- Mostramos mensaje de éxito si existe --}}
-    @if (session('success'))
+    @if (session('status'))
         <div style="color: green;">
-            {{ session('success') }}
+            {{ session('status') }}
         </div>
     @endif
+
+    <p><a href="{{ route('mensaje.index') }}">Ver mensajes enviados</a></p>
 
     {{-- Formulario --}}
     <form action="{{ route('mensaje.store') }}" method="POST">

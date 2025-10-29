@@ -7,6 +7,10 @@
 <body>
     <h1>Mensajes recibidos</h1>
 
+    <!-- Enlace para volver al formulario -->
+    <p><a href="{{ route('mensaje.create') }}">Volver al formulario</a></p>
+
+    <!-- Tabla de mensajes -->
     @if (count($mensajes) > 0)
         <table border="1" cellpadding="8">
             <thead>
