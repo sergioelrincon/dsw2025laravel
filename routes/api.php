@@ -13,6 +13,7 @@ Route::prefix('v1')->middleware('auth:sanctum')->group(function () {
 //Route::prefix('v1')->group(function () {
     Route::get('/mensajes', [App\Http\Controllers\Api\V1\MensajeController::class, 'index'])->name('mensaje.index');
     Route::post('/mensajes', [App\Http\Controllers\Api\V1\MensajeController::class, 'store'])->name('mensaje.store');
+    Route::delete('/mensajes/{id}', [App\Http\Controllers\Api\V1\MensajeController::class, 'destroy'])->name('mensaje.destroy');
 });
 
 // Ruta para el login, que no requiere autenticación previa, ya que es el punto de entrada para obtener el token de acceso.
