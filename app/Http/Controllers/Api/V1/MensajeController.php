@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\MensajeResource;
 use Illuminate\Http\Request;
 use App\Models\Message;
 
@@ -16,11 +17,8 @@ class MensajeController extends Controller
         // Obtenemos todos los mensajes de la base de datos
         $mensajes = Message::all();
 
-        // Retornamos los mensajes en formato JSON. 
-        return response()->json([
-            'status' => 'success',
-            'data' => $mensajes
-        ], 200);
+        // Retornamos los mensajes en formato JSON.
+        return MensajeResource::collection($mensajes); // Usamos el recurso para transformar los datos antes de enviarlos al cliente.
 
     }
 
